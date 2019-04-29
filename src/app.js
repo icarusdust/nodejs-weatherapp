@@ -8,12 +8,14 @@ const forecast = require("./utils/forecast")
 
 const viewsPath = path.join(__dirname, "../templates/views")
 const partialsPath = path.join(__dirname, "../templates/partials")
+const port = process.env.PORT || 3000
 
 app.set("view engine", "hbs")
 app.set("views",viewsPath )
 hbs.registerPartials(partialsPath)
 
 app.use(express.static(path.resolve(__dirname, '../public')))
+
 
 app.get("/home", (req, res) =>{
     res.render("index", {
@@ -60,6 +62,6 @@ app.get("*", (req, res) =>{
 })
 
 
-app.listen(3000, () => {
-    console.log("Service listening on PORT 3000")
+app.listen(port, () => {
+    console.log(`Service listening on PORT ${port}`)
 })
