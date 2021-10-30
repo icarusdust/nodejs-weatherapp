@@ -61,6 +61,12 @@ app.get("*", (req, res) =>{
     })
 })
 
+app.get("*", (req, res) =>{
+    res.render("404",{
+        errorMessage:"Not found"
+    })
+})
+
 
 app.listen(port, () => {
     console.log(`Service listening on PORT ${port}`)
